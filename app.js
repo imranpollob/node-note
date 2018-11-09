@@ -16,7 +16,7 @@ if (command === 'add') {
 } else if (command === 'get') {
     notes.getNote(argv.title)
 } else if (command === 'delete') {
-    notes.deleteNote(argv.title)
+    notes.deleteNote(argv.title) === true ? console.log('Note deleteed successfully!!') : console.log('No note was found')
 } else {
     console.log('Invalid Command')
 }
