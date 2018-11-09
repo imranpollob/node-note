@@ -9,27 +9,27 @@ let fetchNotes = () => {
     }
 }
 
-let saveNote = (content) => {
-    fs.writeFileSync('notes.json', JSON.stringify(content))
+let saveNote = (notes) => {
+    fs.writeFileSync('notes.json', JSON.stringify(notes))
 }
 
 let addNote = (title, body) => {
-    let content = fetchNotes()
+    let notes = fetchNotes()
     let note = { title, body }
 
-    if (content.filter(item => item.title === title).length == 0) {
-        content.push(note)
-        saveNote(content)
-        return content
+    if (notes.filter(item => item.title === title).length == 0) {
+        notes.push(note)
+        saveNote(notes)
+        return notes
     }
 }
 
 let listNote = () => {
-    console.log('all');    
+    return fetchNotes()
 }
 
 let getNote = (title) => {
-    console.log('all');    
+    return fetchNotes().find(note => note.title === title)  
 }
 
 let deleteNote = (title) => {
