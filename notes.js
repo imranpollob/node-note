@@ -1,18 +1,27 @@
 const fs = require('fs')
 
-let addNote = (title, body) => {
-    let content = []
-    
+let fetchNotes = () => {
     try {
         let previous = fs.readFileSync('notes.json')
-        content = JSON.parse(previous)
+        return JSON.parse(previous)
     } catch (e) {
-        
+        return []
     }
+}
 
-    content.push({title: body})
-
+let saveNote = (content) => {
     fs.writeFileSync('notes.json', JSON.stringify(content))
+}
+
+let addNote = (title, body) => {
+    let content = fetchNotes()
+    let note = { title, body }
+
+    if (content.filter(item => item.title === title).length == 0) {
+        content.push(note)
+        saveNote(content)
+        return content
+    }
 }
 
 let listNote = () => {
