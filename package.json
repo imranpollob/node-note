@@ -1,0 +1,20 @@
+{
+  "name": "node-note",
+  "version": "1.0.0",
+  "description": "simple command line note taking app in node",
+  "main": "app.js",
+  "dependencies": {
+    "lodash": "^4.17.11",
+    "yargs": "^12.0.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node",
+    "note"
+  ],
+  "author": "Imran Pollob",
+  "license": "ISC"
+}
