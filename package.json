@@ -1,14 +1,18 @@
 {
   "name": "node-note",
-  "version": "1.0.0",
-  "description": "simple command line note taking app in node",
-  "main": "app.js",
-  "dependencies": {
-    "yargs": "^12.0.2"
+  "version": "2.1.0",
+  "description": "Simple global note CLI (title-only, newest-first)",
+  "main": "bin/note.js",
+  "bin": {
+    "note": "./bin/note.js"
   },
+  "dependencies": {},
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": ">=14"
   },
   "keywords": [
     "node",

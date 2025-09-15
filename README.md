@@ -1,6 +1,19 @@
 # node-note
-A simple command line note taking app in node
+Simple global note-taking CLI (title-only, newest-first)
 
-Simply add, view or delete notes via terminal
+Install globally and use the `note` command.
 
-Run <b>node app.js --help</b> for details
+Usage
+- Add: `note Your note title without quotes`
+- List: `note` (shows newest first)
+- Find: `note find keyword`
+- Edit: `note edit <index> <new title...>`
+- Delete: `note rm <index> [--yes]`
+- Clear all: `note clear --yes`
+
+Notes are stored per-user in your OS data directory, e.g.,
+- Windows: `%APPDATA%/note/notes.json`
+- macOS: `~/Library/Application Support/note/notes.json`
+- Linux: `~/.local/share/note/notes.json`
+
+The CLI entry point is `bin/note.js` and is exposed as the `note` command when installed globally.
