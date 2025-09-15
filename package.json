@@ -1,10 +1,10 @@
 {
   "name": "node-note-cli",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "A simple CLI tool for managing global notes by title, sorted newest-first.",
   "main": "bin/note.js",
   "bin": {
-    "note": "./bin/note.js"
+    "note": "bin/note.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

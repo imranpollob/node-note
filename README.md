@@ -2,6 +2,9 @@
 A simple CLI tool for managing global notes by title, sorted newest-first.
 
 Install globally and use the `note` command.
+```bash
+npm install -g node-note-cli
+```
 
 ## Usage
 - Add: `note Your note title without quotes`
