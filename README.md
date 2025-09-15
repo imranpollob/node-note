@@ -1,5 +1,5 @@
 # node-note-cli
-Simple global note-taking CLI (title-only, newest-first)
+A simple CLI tool for managing global notes by title, sorted newest-first.
 
 Install globally and use the `note` command.
 
