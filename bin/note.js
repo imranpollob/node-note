@@ -103,12 +103,33 @@ function resolveByIndex(arg, notesSorted) {
 }
 
 function showHelp() {
-  console.log(`note - a tiny notes CLI\n\nUsage:\n  note <title...>           Add a note (title only)\n  note                      List notes (newest first)\n  note find <query>         Search by substring\n  note edit <index> <new title...>\n  note rm <index> [--yes]\n  note clear [--yes]        Delete all notes\n\nTip: Use an index from the current list, e.g., 'note rm 1'\n`);
+  console.log(
+    "note - a tiny notes CLI\n" +
+    "\nUsage:\n" +
+    "  note <title...>           Add a note (title only)\n" +
+    "  note                      List notes (newest first)\n" +
+    "  note find|search <query>  Search by substring\n" +
+    "  note edit <index> <new title...>\n" +
+    "  note rm|del|delete <index> [--yes]\n" +
+    "  note clear [--yes]        Delete all notes\n" +
+    "\nTip: Use an index from the current list, e.g., 'note rm 1'\n"
+  );
 }
 
 function main() {
   const args = process.argv.slice(2);
-  const commands = new Set(["find", "edit", "rm", "del", "delete", "clear", "help", "--help", "-h"]);
+  const commands = new Set([
+    "find",
+    "search",
+    "edit",
+    "rm",
+    "del",
+    "delete",
+    "clear",
+    "help",
+    "--help",
+    "-h"
+  ]);
 
   if (args.length === 0) {
     const notes = loadNotes().sort(byCreatedDesc);
@@ -123,7 +144,7 @@ function main() {
     return;
   }
 
-  if (cmd === "find") {
+  if (cmd === "find" || cmd === "search") {
     const q = args.slice(1).join(" ").toLowerCase();
     if (!q) { console.error("Please provide a search query."); process.exit(1); }
     const notes = loadNotes().sort(byCreatedDesc);
@@ -188,7 +209,7 @@ function main() {
   if (cmd === "clear") {
     const yes = args.includes("--yes") || args.includes("-y");
     if (!yes) {
-      console.log("This will delete all notes. Re-run with --yes to confirm.");
+      console.log("This will delete all notes. Run again with --yes flag to confirm.");
       process.exit(1);
     }
     saveNotes([]);

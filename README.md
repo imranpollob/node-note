@@ -1,9 +1,9 @@
-# node-note
+# node-note-cli
 Simple global note-taking CLI (title-only, newest-first)
 
 Install globally and use the `note` command.
 
-Usage
+## Usage
 - Add: `note Your note title without quotes`
 - List: `note` (shows newest first)
 - Find: `note find keyword`
@@ -11,6 +11,66 @@ Usage
 - Delete: `note rm <index> [--yes]`
 - Clear all: `note clear --yes`
 
+## Examples
+
+- **Add a note:**
+  ```
+  note Buy groceries
+  ```
+  Output:
+  ```
+  Added: Buy groceries
+  ```
+
+- **List all notes:**
+  ```
+  note
+  ```
+  Output:
+  ```
+  1. Buy groceries
+  2. Call Alice
+  3. Finish report
+  ```
+
+- **Find notes containing a keyword:**
+  ```
+  note find gro
+  ```
+  Output:
+  ```
+  1. Buy groceries
+  ```
+
+- **Edit a note (e.g., change note #2):**
+  ```
+  note edit 2 Call Bob
+  ```
+  Output:
+  ```
+  Updated note 2: Call Bob
+  ```
+
+- **Delete a note (e.g., remove note #3):**
+  ```
+  note rm 3 --yes
+  ```
+  Output:
+  ```
+  Deleted note 3: Finish report
+  ```
+
+- **Clear all notes:**
+  ```
+  note clear --yes
+  ```
+  Output:
+  ```
+  All notes deleted.
+  ```
+
+
+## Store Location
 Notes are stored per-user in your OS data directory, e.g.,
 - Windows: `%APPDATA%/note/notes.json`
 - macOS: `~/Library/Application Support/note/notes.json`
